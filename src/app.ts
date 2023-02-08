@@ -2,14 +2,14 @@ import { ImgaeComponent } from "./components/page/item/image.js";
 import { NoteComponent } from "./components/page/item/note.js";
 import { TodoComponent } from "./components/page/item/todo.js";
 import { VideoComponent } from "./components/page/item/video.js";
-import { PageComponent } from "./components/page/page.js";
+import { PageComponent, PageItemComponent } from "./components/page/page.js";
 import { Composable } from "./components/page/page";
 import { Component } from "./components/component";
 
 class App {
   private readonly page!: Component & Composable;
   constructor(appRoot: HTMLElement) {
-    this.page = new PageComponent();
+    this.page = new PageComponent(PageItemComponent);
     this.page.attachTo(appRoot);
 
     const image = new ImgaeComponent("image title", "https://picsum.photos/600/300");
